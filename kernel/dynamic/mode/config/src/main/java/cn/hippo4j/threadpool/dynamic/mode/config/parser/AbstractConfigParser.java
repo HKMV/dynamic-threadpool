@@ -15,27 +15,15 @@
  * limitations under the License.
  */
 
-package cn.hippo4j.common.constant;
+package cn.hippo4j.threadpool.dynamic.mode.config.parser;
 
 /**
- * Magic Number Constants
+ * Abstract config parser
  */
-public class MagicNumberConstants {
+public abstract class AbstractConfigParser implements ConfigParser {
 
-    public static final int INDEX_NEGATIVE_1 = -1;
-
-    public static final int INDEX_0 = 0;
-
-    public static final int INDEX_1 = 1;
-
-    public static final int INDEX_2 = 2;
-
-    public static final int INDEX_3 = 3;
-
-    public static final int INDEX_10 = 10;
-
-    public static final int SIZE_4 = 4;
-
-    public static final long LONG_5 = 5L;
-
+    @Override
+    public boolean supports(ConfigFileTypeEnum type) {
+        return getConfigFileTypes().contains(type);
+    }
 }

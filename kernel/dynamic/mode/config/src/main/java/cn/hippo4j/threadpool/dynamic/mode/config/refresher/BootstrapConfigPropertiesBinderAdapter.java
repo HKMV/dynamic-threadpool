@@ -15,27 +15,23 @@
  * limitations under the License.
  */
 
-package cn.hippo4j.common.constant;
+package cn.hippo4j.threadpool.dynamic.mode.config.refresher;
+
+import cn.hippo4j.threadpool.dynamic.api.BootstrapPropertiesInterface;
+
+import java.util.Map;
 
 /**
- * Magic Number Constants
+ * Bootstrap config properties binder adapt.
  */
-public class MagicNumberConstants {
+public interface BootstrapConfigPropertiesBinderAdapter {
 
-    public static final int INDEX_NEGATIVE_1 = -1;
-
-    public static final int INDEX_0 = 0;
-
-    public static final int INDEX_1 = 1;
-
-    public static final int INDEX_2 = 2;
-
-    public static final int INDEX_3 = 3;
-
-    public static final int INDEX_10 = 10;
-
-    public static final int SIZE_4 = 4;
-
-    public static final long LONG_5 = 5L;
-
+    /**
+     * Bootstrap core properties binder.
+     *
+     * @param configInfo                dynamic thread pool configuration
+     * @param bootstrapConfigProperties bootstrap config properties
+     * @return
+     */
+    BootstrapPropertiesInterface bootstrapCorePropertiesBinder(Map<Object, Object> configInfo, BootstrapPropertiesInterface bootstrapConfigProperties);
 }

@@ -24,6 +24,7 @@ import lombok.Data;
  */
 @Data
 public class LoginUser {
+
     /**
      * encode key reverse
      */

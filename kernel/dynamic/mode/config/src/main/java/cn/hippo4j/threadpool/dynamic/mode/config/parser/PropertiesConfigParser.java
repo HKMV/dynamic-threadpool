@@ -15,27 +15,30 @@
  * limitations under the License.
  */
 
-package cn.hippo4j.common.constant;
+package cn.hippo4j.threadpool.dynamic.mode.config.parser;
+
+import cn.hippo4j.common.toolkit.CollectionUtil;
+
+import java.io.IOException;
+import java.io.StringReader;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 
 /**
- * Magic Number Constants
+ * Properties config parser.
  */
-public class MagicNumberConstants {
+public class PropertiesConfigParser extends AbstractConfigParser {
 
-    public static final int INDEX_NEGATIVE_1 = -1;
+    @Override
+    public Map<Object, Object> doParse(String content) throws IOException {
+        Properties properties = new Properties();
+        properties.load(new StringReader(content));
+        return properties;
+    }
 
-    public static final int INDEX_0 = 0;
-
-    public static final int INDEX_1 = 1;
-
-    public static final int INDEX_2 = 2;
-
-    public static final int INDEX_3 = 3;
-
-    public static final int INDEX_10 = 10;
-
-    public static final int SIZE_4 = 4;
-
-    public static final long LONG_5 = 5L;
-
+    @Override
+    public List<ConfigFileTypeEnum> getConfigFileTypes() {
+        return CollectionUtil.newArrayList(ConfigFileTypeEnum.PROPERTIES);
+    }
 }

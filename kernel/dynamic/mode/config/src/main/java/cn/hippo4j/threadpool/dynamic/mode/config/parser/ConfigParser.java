@@ -15,27 +15,38 @@
  * limitations under the License.
  */
 
-package cn.hippo4j.common.constant;
+package cn.hippo4j.threadpool.dynamic.mode.config.parser;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 /**
- * Magic Number Constants
+ * Config parser.
  */
-public class MagicNumberConstants {
+public interface ConfigParser {
 
-    public static final int INDEX_NEGATIVE_1 = -1;
+    /**
+     * Supports.
+     *
+     * @param type
+     * @return
+     */
+    boolean supports(ConfigFileTypeEnum type);
 
-    public static final int INDEX_0 = 0;
+    /**
+     * Do parse.
+     *
+     * @param content
+     * @return
+     * @throws IOException
+     */
+    Map<Object, Object> doParse(String content) throws IOException;
 
-    public static final int INDEX_1 = 1;
-
-    public static final int INDEX_2 = 2;
-
-    public static final int INDEX_3 = 3;
-
-    public static final int INDEX_10 = 10;
-
-    public static final int SIZE_4 = 4;
-
-    public static final long LONG_5 = 5L;
-
+    /**
+     * Get config file types.
+     *
+     * @return
+     */
+    List<ConfigFileTypeEnum> getConfigFileTypes();
 }
